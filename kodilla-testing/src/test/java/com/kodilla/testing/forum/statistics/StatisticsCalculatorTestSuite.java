@@ -25,7 +25,7 @@ public class StatisticsCalculatorTestSuite {
         //When
         statisticsCalculator.calculateAdvStatistics(mockStatistics);
         //Then
-        Assert.assertEquals(0/0, statisticsCalculator.averageCommentsperPost, 0.1);
+        Assert.assertEquals(Double.NaN, statisticsCalculator.averageCommentsperPost, 0.1);
         Assert.assertEquals(0/5, statisticsCalculator.averageCommentsPerUser, 0.1);
         Assert.assertEquals(0/5, statisticsCalculator.averagePostsperUser, 0.1);
     }
@@ -66,8 +66,8 @@ public class StatisticsCalculatorTestSuite {
         statisticsCalculator.calculateAdvStatistics(mockStatistics);
         //Then
         Assert.assertEquals(5/5, statisticsCalculator.averageCommentsperPost, 0.1);
-        Assert.assertEquals(5/0, statisticsCalculator.averageCommentsPerUser, 0.1);
-        Assert.assertEquals(5/0, statisticsCalculator.averagePostsperUser, 0.1);
+        Assert.assertEquals(Double.POSITIVE_INFINITY, statisticsCalculator.averageCommentsPerUser, 0.1);
+        Assert.assertEquals(Double.POSITIVE_INFINITY, statisticsCalculator.averagePostsperUser, 0.1);
     }
 
     @Test
