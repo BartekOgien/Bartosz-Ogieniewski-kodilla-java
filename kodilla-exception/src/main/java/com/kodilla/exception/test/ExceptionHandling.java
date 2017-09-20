@@ -9,7 +9,7 @@ public class ExceptionHandling {
             secondChallenge.probablyIWillThrowException(0, 3);
 
         } catch (Exception e) {
-            System.out.println("Wrong arguments. Y must be not equals 1,5 and X must be lesser than 2 and greater/equals than 1");
+            System.out.println("Wrong arguments! Y must be not equals 1,5 and X must be lesser than 2 and greater/equals than 1");
         }
     }
 }
