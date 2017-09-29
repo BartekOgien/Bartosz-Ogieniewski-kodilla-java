@@ -1,4 +1,7 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.challenge2.orders;
+
+import com.kodilla.good.patterns.challenges.challenge2.DTO.ShoppingDTO;
+import com.kodilla.good.patterns.challenges.challenge2.informations.InformationService;
 
 public class ShoppingProcessor {
 
@@ -13,10 +16,10 @@ public class ShoppingProcessor {
     }
 
     public ShoppingDTO process(ShopRequest shopRequest) {
-        boolean isBought = shoppingService.buy(shopRequest.getUser(), shopRequest.product, shopRequest.dateOfOrder);
+        boolean isBought = shoppingService.buy(shopRequest.getUser(), shopRequest.getProduct(), shopRequest.getDateOfOrder());
         if(isBought) {
             informationService.inform(shopRequest.getUser());
-            shoppingRepository.saveShoppingOrder(shopRequest.getUser(), shopRequest.product, shopRequest.dateOfOrder);
+            shoppingRepository.saveShoppingOrder(shopRequest.getUser(), shopRequest.getProduct(), shopRequest.getDateOfOrder());
             return new ShoppingDTO(shopRequest.getUser(), true);
         }
         else {

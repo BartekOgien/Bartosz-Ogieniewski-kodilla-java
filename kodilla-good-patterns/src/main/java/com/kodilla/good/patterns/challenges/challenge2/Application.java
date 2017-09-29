@@ -1,5 +1,8 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.challenge2;
 
+
+import com.kodilla.good.patterns.challenges.challenge2.orders.*;
+import com.kodilla.good.patterns.challenges.challenge2.informations.MailService;
 
 public class Application {
 

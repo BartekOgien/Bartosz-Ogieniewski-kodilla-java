@@ -1,17 +1,9 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.challenge2.users;
 
 public class User {
 
     private String name;
     private String surname;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                '}';
-    }
 
     public User(String name, String surname) {
         this.name = name;
@@ -24,5 +16,13 @@ public class User {
 
     public String getSurname() {
         return surname;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
     }
 }
