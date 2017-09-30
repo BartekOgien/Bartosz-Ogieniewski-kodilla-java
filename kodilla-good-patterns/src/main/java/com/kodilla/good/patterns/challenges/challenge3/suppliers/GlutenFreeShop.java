@@ -5,7 +5,7 @@ import com.kodilla.good.patterns.challenges.challenge3.orders.OrderRepository;
 
 public class GlutenFreeShop implements SupplierShop {
 
-    private final String name = "Gluten Free Shop";
+    private final static String NAME = "Gluten Free Shop";
 
     public void process(OrderDTO orderDTO) {
         if(orderDTO.getOrderConfirmation()) {
@@ -15,6 +15,6 @@ public class GlutenFreeShop implements SupplierShop {
     }
 
     public String getName() {
-        return name;
+        return NAME;
     }
 }
