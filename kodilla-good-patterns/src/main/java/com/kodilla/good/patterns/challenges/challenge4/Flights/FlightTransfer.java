@@ -1,7 +1,5 @@
 package com.kodilla.good.patterns.challenges.challenge4.Flights;
 
-import com.kodilla.good.patterns.challenges.challenge4.Flights.Flight;
-
 public class FlightTransfer {
 
     private Flight firstFlight;

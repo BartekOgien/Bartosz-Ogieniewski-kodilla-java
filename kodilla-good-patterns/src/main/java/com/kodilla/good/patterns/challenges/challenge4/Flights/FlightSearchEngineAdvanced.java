@@ -6,15 +6,16 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class FlightSearchEngineAdvanced {
+    private FlightRepository flightrepository = new FlightRepository();
 
-    public void getWhereYouCanFlyWithTransfer(Set<Flight> flightList, String finishAirport, String startAirport) {
+    public void getWhereYouCanFlyWithTransfer(String finishAirport, String startAirport) {
         System.out.println("List of flights with transfer from: " + startAirport + " , to: " + finishAirport);
-        List<Flight> flightToAirport = flightList.stream()
+        List<Flight> flightToAirport = flightrepository.getFlightList().stream()
                 .filter(flight -> flight.getDestinationAirport().equals(finishAirport))
                 .filter(flight -> !flight.getStartAirport().equals(startAirport))
                 .collect(Collectors.toList());
 
-        List<Flight> flightFromAirport = flightList.stream()
+        List<Flight> flightFromAirport = flightrepository.getFlightList().stream()
                 .filter(flight -> flight.getStartAirport().equals(startAirport))
                 .filter(flight -> !flight.getDestinationAirport().equals(finishAirport))
                 .collect(Collectors.toList());

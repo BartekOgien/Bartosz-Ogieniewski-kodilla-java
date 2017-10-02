@@ -2,8 +2,8 @@ package com.kodilla.good.patterns.challenges.challenge4.Users;
 
 public class UserRequest {
 
-    User user;
-    String loginTime;
+    private User user;
+    private String loginTime;
 
     public UserRequest(User user, String loginTime) {
         this.user = user;

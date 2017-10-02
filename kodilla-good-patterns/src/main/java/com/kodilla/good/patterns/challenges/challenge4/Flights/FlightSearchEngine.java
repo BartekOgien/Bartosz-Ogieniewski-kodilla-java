@@ -1,21 +1,19 @@
 package com.kodilla.good.patterns.challenges.challenge4.Flights;
 
-import com.kodilla.good.patterns.challenges.challenge4.Flights.Flight;
-
-import java.util.Set;
 
 public class FlightSearchEngine {
+    private FlightRepository flightrepository = new FlightRepository();
 
-    public void getWhereYouCanFly(Set<Flight> flightList, String startAirport) {
+    public void getWhereYouCanFly(String startAirport) {
         System.out.println("List of flights from: " + startAirport);
-        flightList.stream()
+        flightrepository.getFlightList().stream()
                 .filter(flight -> flight.getStartAirport().equals(startAirport))
                 .forEach(f -> System.out.println(f));
     }
 
-    public void getFromYouCanFly(Set<Flight> flightList, String finishAirport) {
+    public void getFromYouCanFly(String finishAirport) {
         System.out.println("List of flights to: " + finishAirport);
-        flightList.stream()
+        flightrepository.getFlightList().stream()
                 .filter(flight -> flight.getDestinationAirport().equals(finishAirport))
                 .forEach(f -> System.out.println(f));
     }

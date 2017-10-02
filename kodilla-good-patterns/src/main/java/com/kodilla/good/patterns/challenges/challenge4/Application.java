@@ -1,6 +1,5 @@
 package com.kodilla.good.patterns.challenges.challenge4;
 
-import com.kodilla.good.patterns.challenges.challenge4.Flights.FlightRepository;
 import com.kodilla.good.patterns.challenges.challenge4.Flights.FlightSearchEngine;
 import com.kodilla.good.patterns.challenges.challenge4.Flights.FlightSearchEngineAdvanced;
 import com.kodilla.good.patterns.challenges.challenge4.Flights.FlightService;
@@ -13,15 +12,14 @@ public class Application {
 
         UserRequestRetriever userRequestRetriever = new UserRequestRetriever();
         UserRequest userRequest = userRequestRetriever.retrieve();
-        new FlightService().userInformation(userRequest);
+        new FlightService().getuserInformation(userRequest);
 
-        FlightRepository flightRepository = new FlightRepository();
         FlightSearchEngine flightSearchEngine = new FlightSearchEngine();
-        flightSearchEngine.getWhereYouCanFly(flightRepository.getFlightList(), "Warsaw");
-        flightSearchEngine.getFromYouCanFly(flightRepository.getFlightList(), "Warsaw");
+        flightSearchEngine.getWhereYouCanFly("Warsaw");
+        flightSearchEngine.getFromYouCanFly("Warsaw");
 
         FlightSearchEngineAdvanced flightSearchEngineAdvanced = new FlightSearchEngineAdvanced();
-        flightSearchEngineAdvanced.getWhereYouCanFlyWithTransfer(flightRepository.getFlightList(), "Warsaw", "Poznan");
+        flightSearchEngineAdvanced.getWhereYouCanFlyWithTransfer("Warsaw", "Poznan");
 
     }
 }
