@@ -15,9 +15,17 @@ public class BigmacTestSuite {
                 .ingredients("tomatoe")
                 .build();
         System.out.println(bigmac);
+
         //When
         int ingredientsQuantity = bigmac.getIngredients().size();
+        boolean isRoll = bigmac.isRoll();
+        String sauce = bigmac.getSauce();
+        int burgerNumbers = bigmac.getBurgers();
+
         //Then
         Assert.assertEquals(ingredientsQuantity, 2);
+        Assert.assertEquals(isRoll, true);
+        Assert.assertEquals(sauce, "barbecue");
+        Assert.assertEquals(burgerNumbers, 2);
     }
 }
