@@ -9,11 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany(){
@@ -59,5 +63,59 @@ public class CompanyDaoTestSuite {
                 } catch (Exception e) {
                     //do nothing
                 }
+    }
+
+    @Test
+    public void testRetrieveEmployersByLastname() {
+        //Given
+        Employee employee1 = new Employee("Zenek", "Kowalskyy");
+        Employee employee2 = new Employee("Tadek", "Wybijoko");
+        employeeDao.save(employee1);
+        employeeDao.save(employee2);
+        int id1 = employee1.getId();
+        int id2 = employee2.getId();
+
+        //When
+        List<Employee> resultList = employeeDao.retrieveEmployersByLastname("Wybijoko");
+
+        //Then
+        try {
+            Assert.assertEquals(1, resultList.size());
         }
+
+        //CleanUp
+        finally {
+            employeeDao.delete(id1);
+            employeeDao.delete(id2);
+        }
+    }
+
+    @Test
+    public void testRetrieveCompanyNameBySubstring() {
+        //Given
+        Company company1 = new Company("Kodilla");
+        Company company2 = new Company("Kodzzilla");
+        Company company3 = new Company("Lakodzilla");
+        companyDao.save(company1);
+        companyDao.save(company2);
+        companyDao.save(company3);
+        int id1 = company1.getId();
+        int id2 = company2.getId();
+        int id3 = company3.getId();
+
+        //When
+        List<Company> resultList = companyDao.retrieveCompanyNameBySubstring("kod");
+
+        //Then
+        try {
+            Assert.assertEquals(2, resultList.size());
+        }
+
+        //Cleanup
+        finally {
+            companyDao.delete(id1);
+            companyDao.delete(id2);
+            companyDao.delete(id3);
+        }
+    }
 }
