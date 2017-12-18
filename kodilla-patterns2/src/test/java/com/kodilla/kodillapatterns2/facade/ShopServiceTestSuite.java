@@ -75,7 +75,7 @@ public class ShopServiceTestSuite {
         try {
             orderFacade.processOrder(order, 1L);
         } catch (OrderProcessingException e) {
-            
+
         }
     }
 }
